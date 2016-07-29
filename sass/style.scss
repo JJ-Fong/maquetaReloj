@@ -1,0 +1,102 @@
+$clock-size: 500px;
+$number-step: 30deg; 
+$clock-left: 250px;
+$minute-step: 6deg;
+$second-step: 6deg; 
+$hour-step: 30deg; 
+
+.clock{
+	height: $clock-size;
+	position: relative;
+	text-align: center; 
+}
+
+.analog{
+	border-radius: 100%;
+	border: solid 3px black;
+	height: $clock-size;
+	left: $clock-left;
+	position: absolute;
+	width: $clock-size;
+}
+
+.analog .hand{
+}
+
+.analog div[class^="hours"]{
+	transform-origin: 0% 100%;
+	position: absolute;
+	background-color: black;
+	box-sizing: border-box;
+	height: #{$clock-size/4};
+	left: #{$clock-size/2};
+	margin-top: #{$clock-size/4};
+	width: 10px;
+
+}
+
+@for $i from 0 through 11{
+	.hours-#{$i}{
+		transform: rotate(#{$hour-step * ($i)});
+	}
+}
+
+.analog div[class^="minutes"]{
+	transform-origin: 0% 100%;
+	position: absolute;
+	background-color: black;
+	height: #{$clock-size/2};
+	left: #{$clock-size/2};
+	width: 5px;
+}
+
+@for $i from 0 through 59{
+	.minutes-#{$i}{
+		transform: rotate(#{$minute-step * ($i)});
+	}
+}
+
+.analog div[class^="seconds"]{
+	transform-origin: 0% 100%;
+	position: absolute;
+	height: #{$clock-size/2};
+	left: #{$clock-size/2};
+	width: 3px;
+	background-color: red;
+}
+
+@for $i from 0 through 59{
+	.seconds-#{$i}{
+		transform: rotate(#{$second-step * ($i)});
+	}
+}
+
+div[class^="wrapper"]{
+	height: $clock-size+50px;
+	left: #{$clock-size / 2  + $clock-left - 5};
+	margin-top: -20px;
+	position: absolute;
+}
+
+@for $i from 1 through 12{
+	div[class$="number-#{$i}"]{
+		transform: rotate($number-step*$i);
+	
+	& .number{
+		transform: rotate($number-step*$i*-1);
+	}
+	
+	}
+}
+
+.digital {
+	font-family: "Courier New", Sans-serif; 
+	font-size: #{$clock-size/4};
+	line-height: $clock-size;
+
+	& .hours, .minutes, .seconds, .dots{
+		float: left;
+		width: 20%;
+		text-align: center;
+	}
+}
