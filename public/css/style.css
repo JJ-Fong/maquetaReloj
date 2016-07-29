@@ -505,5 +505,5 @@ div[class$="number-12"] {
   line-height: 500px; }
   .digital .hours, .digital .minutes, .digital .seconds, .digital .dots {
     float: left;
-    text-align: center; }
-    width: 20%;
+    text-align: center; 
+    width: 20%;}
