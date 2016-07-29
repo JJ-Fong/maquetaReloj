@@ -246,12 +246,12 @@
   transform: rotate(354deg); }
 
 .analog div[class^="seconds"] {
-  background-color: red; }
+  background-color: red; 
   height: 250px;
   left: 250px;
   position: absolute;
   transform-origin: 0% 100%;
-  width: 3px;
+  width: 3px; }
 
 .seconds-0 {
   transform: rotate(0deg); }
